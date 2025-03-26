@@ -1,0 +1,58 @@
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+.mosaic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mosaic img {
+  margin: 1rem;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.game-info {
+  margin: 1rem;
+  width: 200px;
+  color: #333;
+}
+
+
+.card-img-top {
+  width: 100%; /* Remplir la largeur disponible */
+  height: auto; /* Maintenir le ratio d'origine de l'image */
+  aspect-ratio: 2 / 3; /* Forcer le ratio 2/3 */
+  object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
+  background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
+}
