@@ -14,7 +14,7 @@
     <header class="bg-dark text-white">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Mon Logo</a>
+                <a class="navbar-brand" href="#">Vapeur</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,13 +25,14 @@
                         <li class="nav-item"><a class="nav-link" href="#">Nouveautés</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     </ul>
-                    <div class="d-flex">
-                        <a href="login.html" class="btn btn-outline-success">Se Connecter</a>
-                    </div>
+                    <a class="navbar-nav me-auto"><span id="navbar-status" class="nav-link">Invité</span></a>
+                    <a id="auth-button" href="login.html" class="btn btn-outline-success">Se Connecter</a>
+                    
                 </div>
             </div>
         </nav>
     </header>
+
 
     <!-- Main Content -->
     <main class="container mt-4">
@@ -67,9 +68,41 @@
                 </div>
             </div>
         </section>
+        <section class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 5" id="game-img-5">
+                    <div class="card-body" id="game-info-5"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 6" id="game-img-6">
+                    <div class="card-body" id="game-info-6"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 7" id="game-img-7">
+                    <div class="card-body" id="game-info-7"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 8" id="game-img-8">
+                    <div class="card-body" id="game-info-8"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 9" id="game-img-9">
+                    <div class="card-body" id="game-info-9"></div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    
+    <script src="auth.js"></script>
+    <script src="script.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><script src="script.js"></script>
 </body>
 

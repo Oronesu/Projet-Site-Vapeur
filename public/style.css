@@ -56,3 +56,8 @@ nav ul li a:hover {
   object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
   background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
 }
+
+
+#success-banner {
+  display: none;
+}

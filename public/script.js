@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // script.js
+    //
+    // Gère principalement l'API GiantBomb
+    //
+        
     const apiKey = '5bfe3224040dc95a4255fe5f602918dd6b5afaa8'; // Clé API GiantBomb
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Reverse Proxy pour éviter CORS
     const apiUrl = 'https://www.giantbomb.com/api/games/';

@@ -43,5 +43,24 @@ app.post(
     })
 );
 
+app.get('/logout', (req, res) => {
+    req.logout((err) => {
+        if (err) {
+            return res.status(500).send('Erreur lors de la déconnexion');
+        }
+        res.redirect('/login.html');
+    });
+});
+
+//route pour vérifier le statut de l'auth de l'utilisateur
+app.get('/user-status', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.json({ isLoggedIn: true });
+    } else {
+        res.json({ isLoggedIn: false });
+    }
+});
+
+
 // Démarrer le serveur
 app.listen(3000, () => console.log('Serveur lancé sur http://localhost:3000'));
