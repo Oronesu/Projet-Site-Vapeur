@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Site</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">GROS LOGO POURRI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Catégories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Nouveautés</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                    <div class="d-flex">
+                        <!-- Bouton Login -->
+                        <button class="btn btn-outline-success" id="login-toggle">Se Connecter</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Formulaire de connexion dépliant -->
+        <div class="container mt-2" id="login-collapse" style="display: none;">
+            <div class="card bg-light p-3">
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Votre email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" placeholder="Votre mot de passe">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Se Connecter</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+
+
+
+    <main class="container mt-4">
+        <section class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 1" id="game-img-0">
+                    <div class="card-body" id="game-info-0"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 1" id="game-img-1">
+                    <div class="card-body" id="game-info-1"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 2" id="game-img-2">
+                    <div class="card-body" id="game-info-2"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 3" id="game-img-3">
+                    <div class="card-body" id="game-info-3"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 4" id="game-img-4">
+                    <div class="card-body" id="game-info-4"></div>
+                </div>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 5" id="game-img-5">
+                    <div class="card-body" id="game-info-5"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 6" id="game-img-6">
+                    <div class="card-body" id="game-info-6"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 7" id="game-img-7">
+                    <div class="card-body" id="game-info-7"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 8" id="game-img-8">
+                    <div class="card-body" id="game-info-8"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="Game 9" id="game-img-9">
+                    <div class="card-body" id="game-info-9"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+XH2rPdBi6pGx0D9Cw5sUib2qFMpD" crossorigin="anonymous"></script>
+    <script src="script2.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginToggle = document.getElementById('login-toggle');
+            const loginCollapse = document.getElementById('login-collapse');
+    
+            // Ajouter un événement click pour afficher/masquer le formulaire dépliant
+            loginToggle.addEventListener('click', () => {
+                if (loginCollapse.style.display === 'none') {
+                    loginCollapse.style.display = 'block';
+                } else {
+                    loginCollapse.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+
+
+</body>
+
+</html>
