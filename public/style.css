@@ -2,12 +2,13 @@
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+
 }
 
 header {
   background-color: #333;
   color: white;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 nav ul {
@@ -21,12 +22,22 @@ nav ul {
 nav ul li a {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem;
 }
 
 nav ul li a:hover {
   background-color: #555;
 }
+
+.navbar-nav .nav-link {
+  text-transform: uppercase; /* Met les icônes en majuscule */
+}
+
+.navbar-nav .nav-link.active {
+  color: lightskyblue !important; 
+  font-weight: bold;
+}
+
 
 .mosaic {
   display: flex;
@@ -57,7 +68,42 @@ nav ul li a:hover {
   background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
 }
 
+.auth-container {
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  font-weight: bold;
+  font-size: 1.1rem; 
+  color: #007bff; 
+  padding-right: 1rem;
+}
 
 #success-banner {
   display: none;
+}
+
+/* La carte reste dans la grille, et son contenu peut déborder */
+.card {
+  position: relative;
+  overflow: visible; /* Permet à la description de dépasser */
+  transition: z-index 0.3s ease;
+}
+
+/* Au survol, on augmente le z-index pour que la carte passe au-dessus de ses voisines */
+.card:hover {
+  z-index: 10;
+}
+
+/* La description, normalement cachée */
+.game-description {
+  display: none;
+  position: absolute;
+
+}
+
+/* Au survol de la carte, la description s'affiche */
+.card:hover .game-description {
+  display: block;
 }

@@ -52,8 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gameElement) {
             gameElement.innerHTML = `
                 <h2>${gameInfo.name}</h2>
-                <p>${gameInfo.deck || 'Description non disponible'}</p>
-                <p><strong>Date de sortie :</strong> ${gameInfo.original_release_date || 'Non disponible'}</p>
+                <p class="game-description">${gameInfo.deck || 'Description non disponible'}</p>
             `;
         }
 
@@ -62,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             imageElement.alt = gameInfo.name || 'Game Image';
         }
     }
+
 
     // Lancer la récupération et l'affichage des jeux filtrésd
     fetchAndDisplayFilteredGames();
