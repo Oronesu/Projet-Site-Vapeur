@@ -13,8 +13,8 @@
     <!-- Navbar -->
     <header class="bg-dark text-white">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">GROS LOGO POURRI</a>
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="" width="225" height="60" margin="0"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,9 +25,13 @@
                         <li class="nav-item"><a class="nav-link" href="#">Nouveautés</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     </ul>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-success">Se Connecter</button>
+                    
+                    <div class="auth-container d-flex align-items-center">
+                        <span id="navbar-status" class="status-text me-2">Invité</span>
+                        <a id="auth-button" href="login.html" class="btn btn-outline-success">Se Connecter</a>
                     </div>
+                    
+                    
                 </div>
             </div>
         </nav>

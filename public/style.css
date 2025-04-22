@@ -60,14 +60,6 @@ nav ul li a:hover {
 }
 
 
-.card-img-top {
-  width: 100%; /* Remplir la largeur disponible */
-  height: auto; /* Maintenir le ratio d'origine de l'image */
-  aspect-ratio: 2 / 3; /* Forcer le ratio 2/3 */
-  object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
-  background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
-}
-
 .auth-container {
   display: flex;
   align-items: center;
@@ -84,26 +76,65 @@ nav ul li a:hover {
   display: none;
 }
 
-/* La carte reste dans la grille, et son contenu peut déborder */
+/* Assure que la carte s'adapte naturellement à son contenu */
 .card {
-  position: relative;
-  overflow: visible; /* Permet à la description de dépasser */
-  transition: z-index 0.3s ease;
+  overflow: hidden;  /* Pas d'effet de débordement pendant la transition */
+  transition: all 0.5s ease;
 }
 
-/* Au survol, on augmente le z-index pour que la carte passe au-dessus de ses voisines */
-.card:hover {
-  z-index: 10;
-}
-
-/* La description, normalement cachée */
+/* Style par défaut de la description cachée */
 .game-description {
-  display: none;
-  position: absolute;
-
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin: 0;  /* Pour éviter des espaces indésirables */
 }
 
-/* Au survol de la carte, la description s'affiche */
+/* Au survol, la description se déploie */
 .card:hover .game-description {
-  display: block;
+  max-height: 150px; /* Ajuster valeur selon hauteur de description */
+  opacity: 1;
 }
+
+.card-body h2 {
+  /* On utilise un modèle flexible pour le texte */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* On définit la hauteur en fonction du nombre de lignes et d'un line-height choisi */
+  line-height: 1; /* Par exemple 1.4 */
+  height: calc(2 * 1em); /* Equivaut à deux lignes */
+}
+
+.card-img-top {
+  width: 100%; /* Remplir la largeur disponible */
+  height: auto; /* Maintenir le ratio d'origine de l'image */
+  aspect-ratio: 2 / 3; /* Forcer le ratio 2/3 */
+  object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
+  background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
+}
+
+/* Pour le conteneur de l'image avec icône */
+.img-container {
+  position: relative;
+}
+
+/* Style de l'icône bleue, cachée par défaut */
+.hover-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Pour éviter d'intercepter le survol sur l'image principale */
+}
+
+.img-container:hover .hover-icon {
+  opacity: 1;
+}
+

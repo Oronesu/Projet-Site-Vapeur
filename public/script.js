@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchAndDisplayFilteredGames() {
         try {
             // Créer une URL avec les deux filtres : date et plateforme
-            const randomOffset = Math.floor(Math.random() * 1000); // Exemple pour une pagination aléatoire
+            const randomOffset = Math.floor(Math.random() * 1000); // pagination aléatoire
             const apiUrlWithParams = `${proxyUrl}${apiUrl}?api_key=${apiKey}&format=json&limit=${pageSize}&offset=${randomOffset}&field_list=name,deck,image,platforms,original_release_date&filter=platforms:${pcPlatformId}&filter=original_release_date:2020-01-01 00:00:00|2025-03-01 00:00:00`;
 
             console.log('URL utilisée :', apiUrlWithParams); // Pour débogage
