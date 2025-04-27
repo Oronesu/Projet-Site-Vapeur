@@ -79,10 +79,47 @@ function createGameTile(gameInfo, index, pageType) {
     </div>`;
 }
 
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('hover-icon')) {
+
+document.addEventListener('click', async (e) => {
+    // Ajout au panier
+
+
+    /*if (e.target.classList.contains('hover-icon')) {
         const index = e.target.dataset.gameIndex;
         const title = e.target.dataset.gameTitle;
         alert(`Tile n°${index}\nJeu : ${title}`);
+    }*/
+    if (e.target.classList.contains('hover-icon')) {
+        const title = e.target.dataset.gameTitle;
+        
+        try {
+            const response = await fetch('/api/cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title })
+            });
+            
+            if (response.ok) {
+                alert(`"${title}" ajouté au panier !`);
+            }
+        } catch (error) {
+            console.error('Erreur:', error);
+        }
+    }
+    
+    // Affichage du panier
+    if (e.target.classList.contains('panier-icon')) {
+        try {
+            const response = await fetch('/api/cart');
+            const games = await response.json();
+            
+            const message = games.length > 0 
+                ? `Votre panier:\n- ${games.join('\n- ')}` 
+                : 'Panier vide';
+                
+            alert(message);
+        } catch (error) {
+            console.error('Erreur:', error);
+        }
     }
 });
