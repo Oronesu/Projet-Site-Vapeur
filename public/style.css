@@ -88,12 +88,12 @@ nav ul li a:hover {
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease;
-  margin: 0;  /* Pour éviter des espaces indésirables */
+  margin: 0;  
 }
 
 /* Au survol, la description se déploie */
 .card:hover .game-description {
-  max-height: 150px; /* Ajuster valeur selon hauteur de description */
+  max-height: 150px; 
   opacity: 1;
 }
 
@@ -105,8 +105,8 @@ nav ul li a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   /* On définit la hauteur en fonction du nombre de lignes et d'un line-height choisi */
-  line-height: 1; /* Par exemple 1.4 */
-  height: calc(2 * 1em); /* Equivaut à deux lignes */
+  line-height: 1; 
+  height: calc(2 * 1em);
 }
 
 .card-img-top {
@@ -122,13 +122,12 @@ nav ul li a:hover {
   position: relative;
 }
 
-/* Style de l'icône bleue, cachée par défaut */
 .hover-icon {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none; /* Pour éviter d'intercepter le survol sur l'image principale */

@@ -6,9 +6,17 @@ const path = require('path'); // Pour gérer les chemins de fichiers
 
 const app = express();
 
+//parite API perso
+const fs = require('fs');
+const cartFilePath = path.join(__dirname, 'temp_cart.json');
+
+if (!fs.existsSync(cartFilePath)) {
+    fs.writeFileSync(cartFilePath, JSON.stringify([]));
+}
+
 // Simuler des utilisateurs
 const users = [
-    { id: 1, username: 'user1@example.com', password: 'password123' },
+    { id: 1, username: 'caca@gmail.com', password: 'pipicaca' },
     { id: 2, username: 'user2@example.com', password: 'mypassword' },
 ];
 
@@ -25,6 +33,7 @@ passport.deserializeUser((id, done) => {
     done(null, user);
 });
 
+
 // Middleware
 app.use(express.urlencoded({ extended: false })); // Traitement des formulaires
 app.use(session({ secret: 'secret_key', resave: false, saveUninitialized: false })); // Sessions utilisateur
@@ -33,7 +42,8 @@ app.use(passport.session());
 
 // Servir les fichiers statiques dans le dossier "public"
 app.use(express.static(path.join(__dirname, 'public')));
-
+// Ajoutez cette ligne après app.use(express.urlencoded...
+app.use(express.json()); // Pour parser les corps de requête JSON
 // Gestion de la route POST /login
 app.post(
     '/login',
@@ -61,6 +71,40 @@ app.get('/user-status', (req, res) => {
     }
 });
 
+
+//API PERSO
+app.post('/api/cart/add', (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const { gameTitle } = req.body;
+    if (!gameTitle) {
+        return res.status(400).json({ error: 'Game title is required' });
+    }
+
+    const cart = JSON.parse(fs.readFileSync(cartFilePath));
+    cart.push(gameTitle);
+    fs.writeFileSync(cartFilePath, JSON.stringify(cart));
+
+    res.json({ success: true });
+});
+
+app.get('/api/cart', (req, res) => {
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const cart = JSON.parse(fs.readFileSync(cartFilePath));
+    res.json(cart);
+});
+// Nettoyer le fichier à la fermeture du serveur
+process.on('SIGINT', () => {
+    if (fs.existsSync(cartFilePath)) {
+        fs.unlinkSync(cartFilePath);
+    }
+    process.exit();
+});
 
 // Démarrer le serveur
 app.listen(3000, () => console.log('Serveur lancé sur http://localhost:3000'));
