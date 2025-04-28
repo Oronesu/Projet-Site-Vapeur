@@ -131,7 +131,7 @@ nav ul li a:hover {
   height: 50px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; /* Pour éviter d'intercepter le survol sur l'image principale */
+  pointer-events: auto; /* Pour éviter d'intercepter le survol sur l'image principale */
 }
 
 .img-container:hover .hover-icon {
