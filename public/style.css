@@ -23,7 +23,7 @@ header {
   flex-wrap: wrap; /* Permet le retour à la ligne */
 }
 main {
-  flex: 1;
+  flex: 1; /*pour le footer*/
 }
 
 footer {
