@@ -4,7 +4,7 @@ const config = {
         dateFilter: '2020-01-01 00:00:00|2025-03-01 00:00:00'
     },
     category: {
-        pageSize: 16,
+        pageSize: 12, // 3 lignes de 4
         dateFilter: '2010-01-01 00:00:00|2025-03-01 00:00:00'
     }
 };

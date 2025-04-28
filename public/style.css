@@ -1,15 +1,37 @@
- body {
+/* ============================= */
+/*         Base & Structure      */
+/* ============================= */
+
+body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-
 }
 
 header {
   background-color: #333;
   color: white;
-  padding: 0.5rem;
+  padding: 1rem; /* Utilise 1rem pour plus d'espace */
 }
+
+/* Container global */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permet le retour à la ligne */
+}
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+/* ============================= */
+/*          Navigation           */
+/* ============================= */
 
 nav ul {
   list-style-type: none;
@@ -22,22 +44,74 @@ nav ul {
 nav ul li a {
   color: white;
   text-decoration: none;
-  padding: 0.4rem;
+  padding: 0.5rem 1rem;
 }
 
 nav ul li a:hover {
   background-color: #555;
 }
 
-.navbar-nav .nav-link {
-  text-transform: uppercase; /* Met les icônes en majuscule */
+/* Pour la navbar avec menu */
+.navbar,
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.navbar-nav .nav-link.active {
-  color: lightskyblue !important; 
+.navbar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 50px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+  color: #ddd;
+}
+
+/* Active links */
+.navbar-nav .nav-link,
+.navbar-menu .nav-link {
+  text-transform: uppercase;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-menu .nav-link.active {
+  color: lightskyblue !important;
   font-weight: bold;
 }
 
+/* ============================= */
+/*       Authentification        */
+/* ============================= */
+
+.auth-container {
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #007bff;
+  padding-right: 1rem;
+}
+
+#success-banner {
+  display: none;
+}
+
+/* ============================= */
+/*             Mosaic            */
+/* ============================= */
 
 .mosaic {
   display: flex;
@@ -53,76 +127,14 @@ nav ul li a:hover {
   object-fit: cover;
 }
 
-.game-info {
-  margin: 1rem;
-  width: 200px;
-  color: #333;
-}
+/* ============================= */
+/*         Image Container       */
+/* ============================= */
 
-
-.auth-container {
-  display: flex;
-  align-items: center;
-}
-
-.status-text {
-  font-weight: bold;
-  font-size: 1.1rem; 
-  color: #007bff; 
-  padding-right: 1rem;
-}
-
-#success-banner {
-  display: none;
-}
-
-/* Assure que la carte s'adapte naturellement à son contenu */
-.card {
-  overflow: hidden;  /* Pas d'effet de débordement pendant la transition */
-  transition: all 0.5s ease;
-}
-
-/* Style par défaut de la description cachée */
-.game-description {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-  margin: 0;  /* Pour éviter des espaces indésirables */
-}
-
-/* Au survol, la description se déploie */
-.card:hover .game-description {
-  max-height: 150px; /* Ajuster valeur selon hauteur de description */
-  opacity: 1;
-}
-
-.card-body h2 {
-  /* On utilise un modèle flexible pour le texte */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* On définit la hauteur en fonction du nombre de lignes et d'un line-height choisi */
-  line-height: 1; /* Par exemple 1.4 */
-  height: calc(2 * 1em); /* Equivaut à deux lignes */
-}
-
-.card-img-top {
-  width: 100%; /* Remplir la largeur disponible */
-  height: auto; /* Maintenir le ratio d'origine de l'image */
-  aspect-ratio: 2 / 3; /* Forcer le ratio 2/3 */
-  object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
-  background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
-}
-
-/* Pour le conteneur de l'image avec icône */
 .img-container {
   position: relative;
 }
 
-/* Style de l'icône bleue, cachée par défaut */
 .hover-icon {
   position: absolute;
   bottom: 10px;
@@ -131,12 +143,16 @@ nav ul li a:hover {
   height: 50px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none; /* Pour éviter d'intercepter le survol sur l'image principale */
+  pointer-events: auto;
 }
 
 .img-container:hover .hover-icon {
   opacity: 1;
 }
+
+/* ============================= */
+/*       Footer & Social         */
+/* ============================= */
 
 .footer-link {
   color: #f8f9fa;
@@ -163,4 +179,126 @@ nav ul li a:hover {
 .social-icon:hover {
   transform: translateY(-3px);
   color: #fff;
+}
+
+/* ============================= */
+/*           Carousel            */
+/* ============================= */
+
+.carousel-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 600px;
+}
+
+.carousel-img {
+  background-color: black;
+}
+
+/* ============================= */
+/*         Sidebar & Content     */
+/* ============================= */
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background-color: #f9f9f9;
+  flex-shrink: 0;
+}
+
+.sidebar h5 {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+}
+
+.dropdown button {
+  width: 100%;
+  text-align: left;
+}
+
+.collapse label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.sidebar label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.game-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+
+/* ============================= */
+/*              Cards            */
+/* ============================= */
+
+.card {
+  position: relative;
+  overflow: hidden; /* Empêche le débordement pendant la transition */
+  transition: all 0.5s ease;
+}
+
+.card-img-top {
+  width: 100%; 
+  aspect-ratio: 2 / 3; /* Assure que le ratio reste 2:3 */
+  object-fit: contain; 
+  background-color: #000;
+}
+
+
+.card-body h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+  height: calc(2 * 1em);
+}
+
+/* Pour afficher (ou masquer) la description */
+.game-description {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin: 0;
+}
+
+.card:hover .game-description {
+  max-height: 150px;
+  opacity: 1;
+}
+
+/* Si besoin de styles pour un bloc d'infos supplémentaire */
+.game-info {
+  margin: 1rem;
+  width: 200px;
+  color: #333;
+  /* Optionnel : pour une animation d'apparition */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
