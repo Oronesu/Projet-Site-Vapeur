@@ -1,0 +1,218 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+  
+  .mosaic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .mosaic img {
+    margin: 1rem;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .card {
+    position: relative;
+  }
+  
+  
+  .card-img-top {
+    width: 100%; /* Remplir la largeur disponible */
+    height: 200px; /* Maintenir le ratio d'origine de l'image */
+    aspect-ratio: 2 / 3; /* Forcer le ratio 2/3 */
+    object-fit: contain; /* Ajouter des espaces si nécessaire pour respecter le ratio */
+    background-color: #000; /* Couleur de fond pour les zones vides (facultatif) */
+  }
+
+  .card-body {
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    position: absolute; /* Optionnel si vous voulez l'aligner différemment */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8); /* Exemple de style pour le fond */
+    color: #fff; /* Texte en blanc */
+    padding: 1rem;
+    display: flex;
+    border-radius: 0.5rem;
+  }
+
+  
+  .game-info {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    /*margin: 1rem;
+    width: 200px;
+    color: #333;
+    position: absolute;
+    transform: translate(-50%, -50%);*/
+  }
+
+
+  /*.card:hover > .card-body {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .card:hover .game-info {
+    opacity: 1;
+    visibility: visible;
+  }*/
+
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 50px;
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .navbar-menu li a:hover {
+    color: #ddd;
+  }
+
+  .navbar-nav .nav-link.active,
+.navbar-menu .nav-link.active {
+  color: lightskyblue !important;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allows content to wrap to the next line */
+}
+
+.carousel-inner {
+    max-width: 600px; /* Correspond à la largeur des images */
+    margin: 0 auto; /* Centrage horizontal */
+}
+
+.carousel-item img {
+    width: 100%; /* Adapte l'image à la largeur du carrousel */
+    height: 600px; /* Maintient le ratio d'origine */
+}
+
+.carousel-img {
+    background-color: black;
+}
+
+.footer-link {
+  color: #f8f9fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #0d6efd;
+}
+
+.social-icon {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background-color: #f9f9f9;
+  flex-shrink: 0;
+}
+
+.sidebar h5 {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+}
+
+.dropdown button {
+  width: 100%;
+  text-align: left;
+}
+
+.collapse label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.sidebar label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.game-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
