@@ -22,6 +22,7 @@ async function fetchJson(url) {
     return response.json();
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchAndDisplayFilteredGames();
 });
